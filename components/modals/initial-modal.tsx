@@ -51,7 +51,7 @@ export const InitialModal = () => {
 
   const isLoading = form.formState.isSubmitting;
 
-  const OnSubmit = async (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log(values)
   }
 
@@ -71,7 +71,7 @@ export const InitialModal = () => {
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(OnSubmit)} className="space-y-8">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="space-y-8 px-6">
               <div className="flex items-center justify-center text-center">
                 TODO: Image Upload
@@ -80,7 +80,7 @@ export const InitialModal = () => {
               <FormField
                 control={form.control}
                 name="name"
-                render={( field ) => (
+                render={( {field} ) => (
                   <FormItem>
                     <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
                       Server name
